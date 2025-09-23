@@ -12,9 +12,9 @@ top_skip = 42 #the number of rows to skip from the top to when the data starts
 bottom_skip = 18 #the number of rows to skip from the bottom to when the data endss
 start_threshold = -999 #if the starting point is greater than this number, it will also find the max
 columns = dict(Polarization = "Measured Polarization", Voltage = "Drive Voltage")
-cwd = "PE loop Sample 4/Sample D"
+cwd = "PE loop Sample 5/Sample A"
 glob_stuff = "*5Hz.txt"
-
+excel_name = "Unnormalized_Pmax_Sample_5A_5Hz.xlsx"
 
 # txt_files[count] shows the file that is producing the error
 #------------------------------------------------------------------
@@ -287,7 +287,7 @@ df = pd.DataFrame(data)
 print(df)
 
 df2 = df[['File Name', "Unnormalized P_max"]]
-df2.to_excel("Unnormalized_Pmax_Sample_4D_5Hz.xlsx", index = False)
+df2.to_excel(excel_name, index = False)
 
 
 
