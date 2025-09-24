@@ -12,9 +12,9 @@ top_skip = 42 #the number of rows to skip from the top to when the data starts
 bottom_skip = 18 #the number of rows to skip from the bottom to when the data endss
 start_threshold = -999 #if the starting point is greater than this number, it will also find the max
 columns = dict(Polarization = "Measured Polarization", Voltage = "Drive Voltage")
-cwd = "PE loop Sample 8/Sample B_monopolar"
+cwd = "PE loop Sample 2/Sample D"
 glob_stuff = "*5Hz.txt"
-excel_name = "Unnormalized_Pmax_Sample_8B_5Hz.xlsx"
+excel_name = "Unnormalized_Pmax_Sample_2D_5Hz.xlsx"
 
 # txt_files[count] shows the file that is producing the error
 #------------------------------------------------------------------
