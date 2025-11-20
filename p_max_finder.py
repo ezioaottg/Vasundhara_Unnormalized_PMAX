@@ -5,17 +5,17 @@ import os
 import numpy as np
 
 
-
-Sample_number = "New PE loop Sample 2"
-Sample_letter = "C"
-frequency = "100kHz"
+os.chdir("Old PE loops")
+Sample_number = "PE loop Sample 2"
+Sample_letter = "A"
+frequency = "5Hz"
 headerskip = 42
 bottomskip = 18
 
-os.chdir(Sample_number + "/" + Sample_letter)
+os.chdir(Sample_number + "/" + "Sample " +  Sample_letter)
 electrode_order= utility.cell_labels(letter_range= ['A', 'O'], num_range=[1, 16], inverse= True)
 
-text_files = glob.glob("*" + frequency + ".txt")
+text_files = glob.glob("*" + frequency + "*.txt")
 electrode_locs = []
 for filename in text_files:
     electrode_locs.append(utility.get_loc(filename))
@@ -45,9 +45,13 @@ pmax_df = pd.DataFrame({
 
 os.chdir("..")
 os.chdir("..")
-os.chdir("New Pmax")
-
-pmax_df.to_excel("NEW_Pmax_"+ Sample_number[-8:] + Sample_letter + "_" + frequency + ".xlsx", index = False)
+os.chdir("..")
+os.chdir("Pmax")
+os.chdir("Old Pmax")
+#os.chdir("Sample " + Sample_letter)
+print("\n\n\n\n")
+print(os.getcwd())
+pmax_df.to_excel("Unnormalized_Pmax_"+ "Sample_" + Sample_number[-1] + Sample_letter + "_" + frequency + ".xlsx", index = False)
     
 
 

@@ -22,8 +22,8 @@ fig.update_yaxes(showticklabels=False)
 fig.show()
 """
 
-os.chdir("Pmax/Old Pmax/Sample 4")
-filename = "Unnormalized_Pmax_Sample_4D_1kHz.xlsx"
+os.chdir("Pmax/Old Pmax/Sample 2")
+filename = "Unnormalized_Pmax_Sample_2A_1kHz.xlsx"
 electrode_loc_column_name = "Electrode Locations"
 Pmax_column_name = "Unnormalized P_max"
 
@@ -44,15 +44,13 @@ for loc in cell_order:
     else:
         scalar_list.append(float('nan'))
 
-scalar_map = [scalar_list[i:i + 15] for i in range(0, len(scalar_list), 15)]
+scalar_map = np.array([scalar_list[i:i + 15] for i in range(0, len(scalar_list), 15)])
 
 
-#norm = colors.Normalize(vmin = np.nanmin(scalar_map), vmax= np.nanmax(scalar_map))
-#cmap = mpl.colormaps.get_cmap("RdBu")
-#rgba = cmap(norm(scalar_map))
-#img = (rgba * 255).astype(np.uint8)
+#scalar_map = utility.add_zeros(scalar_map)
+#reduced_map = utility.block_nonzero_average(scalar_map, block_H=2, block_W=2)
 
-fig = px.imshow(scalar_map, color_continuous_scale='RdBu_r', title = "Old Sample 4D 1kHz")
+fig = px.imshow(scalar_map, color_continuous_scale='RdBu_r', title = "Old Sample 4D 1kHz", origin='upper',)
 fig.update_xaxes(showticklabels=False)
 fig.update_yaxes(showticklabels=False)
 fig.show()
