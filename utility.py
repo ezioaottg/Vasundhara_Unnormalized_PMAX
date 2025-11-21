@@ -57,8 +57,8 @@ def block_nonzero_average(matrix: np.ndarray,
     count_ouput = signal.convolve2d((matrix !=0).astype(int), kernel, mode = 'valid')
     #Resulting output should be the number of nonzero values in each block
     strided_count = count_ouput[::block_H, ::block_H]
-
     #Divide the sum of each block by the number of nonzero values in each block to get the average
+    strided_count = np.where(strided_count ==0, 1e-9, strided_count) #Making sure we aren't dividing by zero
     strided_average = strided_output/strided_count
 
     return strided_average
@@ -80,5 +80,14 @@ def get_loc(filename):
         loc = filename[0:3] 
 
     return loc
+
+def get_locs(file_list):
+    locs = []
+    for filename in file_list:
+        locs.append(get_loc(filename))
+    
+    return locs
+        
+
 
 
