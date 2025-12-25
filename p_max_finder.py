@@ -30,7 +30,8 @@ The files must also be named very specifically in order for the program to read 
     ex: A9_bipolar_20V_1kHz
     THE A IN A9 HAS TO BE CAPITALIZED
 
-This file will output an excel sheet for each sample letter
+This file will output an excel sheet for each sub-sample with the different measurements with different 
+frequencies in different sheets
 
 """
 
@@ -53,6 +54,7 @@ bottomskip = 18
 os.chdir("Old PE loops")
 
 """-------------------------------------------------------------------------------------------------------"""
+
 
 #Loop over all samples
 for number in sample_numbers:
